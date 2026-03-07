@@ -15,11 +15,7 @@ The system demonstrates **modern SaaS UI design, optimized image processing, and
 
 # 🌐 Live Demo
 
-Frontend
-https://your-live-frontend-link.com
-
-Backend API
-https://your-api-link.com
+https://pixel-vault-frontend-mpin.onrender.com/
 
 ---
 
