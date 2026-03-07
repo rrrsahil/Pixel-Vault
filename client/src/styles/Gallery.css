@@ -252,14 +252,14 @@
 }
 
 .icon-btn {
-  width: 44px;
-  height: 44px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: white;
-  color: var(--text-main);
+  background-color: rgba(255,255,255,0.9);
+  color: #111827;
   font-size: 1.1rem;
   box-shadow: var(--shadow-md);
   transition: all var(--transition-fast);
@@ -323,4 +323,11 @@
     font-size: 1rem;
   }
 
+}
+
+@media (prefers-color-scheme: dark) {
+  .icon-btn {
+    background-color: rgba(255,255,255,0.85);
+    color: #111827;
+  }
 }
