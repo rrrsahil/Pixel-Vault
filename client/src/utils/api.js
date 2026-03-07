@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "https://pixel-vault-kktz.onrender.com/api"
+  baseURL: "https://pixel-vault-kd40.onrender.com/api"
 });
 
 // automatically attach token if exists
