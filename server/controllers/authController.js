@@ -133,13 +133,14 @@ exports.forgotPassword = async (req, res) => {
     const resetUrl = `https://pixel-vault-frontend-mpin.onrender.com/resetpassword/${resetToken}`;
 
     const transporter = nodemailer.createTransport({
-      service: "gmail",
+      host: process.env.MAIL_HOST,
+      port: Number(process.env.MAIL_PORT),
+      secure: false,
       auth: {
         user: process.env.MAIL_USER,
         pass: process.env.MAIL_PASS,
       },
     });
-
     const mailOptions = {
       from: `"PixelVault Security" <${process.env.MAIL_USER}>`,
       to: user.email,
