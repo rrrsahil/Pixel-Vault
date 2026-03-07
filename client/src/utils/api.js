@@ -4,7 +4,7 @@ const API = axios.create({
   baseURL: "https://pixel-vault-kd40.onrender.com/api"
 });
 
-// automatically attach token if exists
+// token automatically attach
 API.interceptors.request.use((req) => {
   const token = localStorage.getItem("token");
   if (token) {
