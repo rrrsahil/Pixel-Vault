@@ -130,12 +130,10 @@ exports.forgotPassword = async (req, res) => {
 
     await user.save();
 
-    const resetUrl = `http://localhost:5173/resetpassword/${resetToken}`;
+    const resetUrl = `https://pixel-vault-frontend-mpin.onrender.com/resetpassword/${resetToken}`;
 
     const transporter = nodemailer.createTransport({
-      host: process.env.MAIL_HOST,
-      port: Number(process.env.MAIL_PORT),
-      secure: false,
+      service: "gmail",
       auth: {
         user: process.env.MAIL_USER,
         pass: process.env.MAIL_PASS,
