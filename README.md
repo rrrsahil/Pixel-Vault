@@ -203,7 +203,7 @@ pixel-vault
 
 ### Hero Banner
 
-<img width="1000" height="600" alt="image" src="https://github.com/user-attachments/assets/a8faa89e-2cfe-4685-9f63-59f3c74f50db" />
+<img width="1000" height="600" alt="Screenshot 2026-03-07 170818" src="https://github.com/user-attachments/assets/474f41b4-24da-42f0-8389-3989cdb346d0" />
 
 
 ```
@@ -212,7 +212,7 @@ pixel-vault
 
 ### Gallery
 
-<img width="1000" height="600" alt="image" src="https://github.com/user-attachments/assets/24fa8b74-449c-4a20-b923-edd63810e45e" />
+<img width="1000" height="600" alt="Screenshot 2026-03-07 171023" src="https://github.com/user-attachments/assets/1aef68ba-92d0-4b9a-83ca-2f2153dada86" />
 
 ```
 /screenshots/gallery.png
@@ -220,7 +220,7 @@ pixel-vault
 
 ### Upload Page
 
-<img width="1000" height="600" alt="image" src="https://github.com/user-attachments/assets/6d471464-5a72-48c5-9433-ea1d1902886b" />
+<img width="1000" height="600" alt="Screenshot 2026-03-07 170904" src="https://github.com/user-attachments/assets/cbb4140a-2095-4a0f-be5b-fb9e3fe7df88" />
 
 ```
 /screenshots/upload.png
