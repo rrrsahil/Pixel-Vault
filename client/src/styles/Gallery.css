@@ -236,7 +236,7 @@
   z-index: 3;
 }
 
-.image-wrapper:hover .image-overlay {
+.image-card:hover .image-overlay {
   opacity: 1;
 }
 
@@ -303,4 +303,24 @@
 .subtext {
   font-size: 0.85rem;
   color: var(--text-muted);
+}
+
+/* Mobile devices (no hover support) */
+@media (hover: none) {
+
+  .image-overlay {
+    opacity: 1;
+    background-color: rgba(17, 24, 39, 0.3);
+  }
+
+  .overlay-actions {
+    transform: translateY(0);
+  }
+
+  .icon-btn {
+    width: 38px;
+    height: 38px;
+    font-size: 1rem;
+  }
+
 }
