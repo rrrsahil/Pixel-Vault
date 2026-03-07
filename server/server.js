@@ -11,7 +11,10 @@ const app = express();
 
 // Middleware
 app.use(cors({
-  origin: 'http://localhost:5173', // Adjust in production
+  origin: [
+    "http://localhost:5173",
+    "https://pixel-vault-frontend-mpin.onrender.com"
+  ],
   credentials: true
 }));
 app.use(express.json());
