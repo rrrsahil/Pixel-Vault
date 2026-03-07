@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
+import API from '../utils/api';
 import { toast } from 'react-toastify';
 import '../styles/Auth.css';
 
@@ -15,7 +15,7 @@ const ForgotPassword = () => {
 
     setLoading(true);
     try {
-      await axios.post('http://localhost:5000/api/auth/forgotpassword', { email });
+      await API.post('/auth/forgotpassword', { email });
       setSent(true);
       toast.success('Password reset email sent (Check server logs in dev mode)');
     } catch (error) {
