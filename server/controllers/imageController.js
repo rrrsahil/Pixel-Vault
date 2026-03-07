@@ -59,7 +59,9 @@ exports.uploadImage = async (req, res) => {
 
     // 3. GENERATE URL AND SAVE TO DB
     const urlPath = extractUrlPath(filepath);
-    const baseUrl = `${req.protocol}://${req.get('host')}`;
+      
+    const protocol = req.headers['x-forwarded-proto'] || req.protocol;
+    const baseUrl = `${protocol}://${req.get('host')}`;
     const fullUrl = `${baseUrl}${urlPath}`;
     
     const newImage = new Image({
