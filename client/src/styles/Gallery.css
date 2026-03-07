@@ -161,7 +161,6 @@
   height: 150px; /* Rigid uniform height */
   background-color: var(--bg-color);
   overflow: hidden;
-  display: flex;
 }
 
 /* Skeleton Loading States & UX Effects */
@@ -178,6 +177,7 @@
 
 .skeleton-overlay {
   position: absolute;
+  pointer-events: none;
   inset: 0;
   background: linear-gradient(90deg, var(--card-bg) 0%, rgba(200,200,200,0.1) 50%, var(--card-bg) 100%);
   background-size: 200% 100%;
@@ -233,9 +233,10 @@
   justify-content: center;
   opacity: 0;
   transition: opacity var(--transition-fast);
+  z-index: 3;
 }
 
-.image-card:hover .image-overlay {
+.image-wrapper:hover .image-overlay {
   opacity: 1;
 }
 
