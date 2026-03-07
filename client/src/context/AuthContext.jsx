@@ -1,31 +1,28 @@
 import React, { createContext, useState, useEffect } from 'react';
-import axios from 'axios';
+import API from '../utils/api';
 import { toast } from 'react-toastify';
 
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
+
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // Check if user is logged in on mount
   useEffect(() => {
     checkLoggedIn();
   }, []);
 
   const checkLoggedIn = async () => {
     const token = localStorage.getItem('token');
+
     if (!token) {
       setLoading(false);
       return;
     }
 
     try {
-      const response = await axios.get('http://localhost:5000/api/auth/me', {
-        headers: {
-          Authorization: `Bearer ${token}`
-        }
-      });
+      const response = await API.get('/auth/me');
       setUser(response.data.user);
     } catch (error) {
       console.error('Auth verification failed', error);
@@ -38,11 +35,14 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (formData) => {
     try {
-      const response = await axios.post('http://localhost:5000/api/auth/login', formData);
+      const response = await API.post('/auth/login', formData);
+
       localStorage.setItem('token', response.data.token);
       setUser(response.data.user);
+
       toast.success('Logged in successfully!');
       return true;
+
     } catch (error) {
       toast.error(error.response?.data?.message || 'Login failed');
       return false;
@@ -51,11 +51,14 @@ export const AuthProvider = ({ children }) => {
 
   const register = async (formData) => {
     try {
-      const response = await axios.post('http://localhost:5000/api/auth/register', formData);
+      const response = await API.post('/auth/register', formData);
+
       localStorage.setItem('token', response.data.token);
       setUser(response.data.user);
+
       toast.success('Account created successfully!');
       return true;
+
     } catch (error) {
       toast.error(error.response?.data?.message || 'Registration failed');
       return false;
