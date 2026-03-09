@@ -371,4 +371,4 @@ https://github.com/rrrsahil
 
 # 📜 License
 
-Distributed under the MIT License. See [LICENSE](LICENSE) for more information.
+Distributed under the MIT License. See ![License](https://img.shields.io/badge/License-MIT-yellow) for more information.
