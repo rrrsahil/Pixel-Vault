@@ -295,19 +295,19 @@ pixel-vault
 
 ## Home Page
 
-<img width="1000" src="https://github.com/rrrsahil/assets/Home.png">
+![Home Page](Screenshot/Home.png)
 
 ---
 
 ## Gallery Page
 
-<img width="1000" src="https://github.com/user-attachments/assets/1aef68ba-92d0-4b9a-83ca-2f2153dada86">
+![Gallery](Screenshot/Gallery.png)
 
 ---
 
 ## Upload Page
 
-<img width="1000" src="https://github.com/user-attachments/assets/cbb4140a-2095-4a0f-be5b-fb9e3fe7df88">
+![Upload Page](Screenshot/Upload_Image.png)
 
 ---
 
