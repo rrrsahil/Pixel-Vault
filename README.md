@@ -4,90 +4,157 @@
 ![Node](https://img.shields.io/badge/Backend-Node.js-brightgreen)
 ![React](https://img.shields.io/badge/Frontend-React-blue)
 ![MongoDB](https://img.shields.io/badge/Database-MongoDB-darkgreen)
+![Cloudinary](https://img.shields.io/badge/Storage-Cloudinary-blue)
 ![License](https://img.shields.io/badge/License-MIT-yellow)
 
-PixelVault is a **production-ready full-stack MERN application** that works as a lightweight **Image Hosting & Media API**.
-Users can securely upload images, manage private galleries, and generate permanent public image URLs that can be embedded across applications.
+PixelVault is a **production-ready full-stack MERN application** designed as a lightweight **Image Hosting Platform & Media API**.
 
-The system demonstrates **modern SaaS UI design, optimized image processing, and secure authentication architecture.**
+Users can upload images, manage private galleries, and generate **permanent CDN-powered public image URLs** that can be embedded across websites and applications.
+
+The system demonstrates **modern SaaS UI design, optimized image processing, secure authentication, and scalable cloud storage architecture.**
 
 ---
 
 # 🌐 Live Demo
 
+Frontend  
 https://pixel-vault-frontend-mpin.onrender.com/
 
----
+Backend API  
+https://pixel-vault-kd40.onrender.com
 
 ---
 
 # 🚀 Features
 
-### 🔐 Authentication & Security
+## 🔐 Authentication & Security
 
-* Secure **JWT Authentication**
-* Password hashing using **bcrypt**
-* Protected API routes via middleware
-* Secure authentication cookies
+- Secure **JWT Authentication**
+- Password hashing using **bcrypt**
+- Protected API routes via middleware
+- Secure authentication cookies
+- Rate limiting for API protection
 
-### 🖼 Image Hosting
+---
 
-* Upload images with drag-and-drop
-* Automatic image compression
-* Image optimization using **Sharp**
-* Permanent public image URLs
+## 🖼 Image Hosting
 
-### 👤 Multi-User System
+- Upload images with drag-and-drop
+- Automatic image compression
+- Image optimization using **Sharp**
+- Storage using **Cloudinary CDN**
+- Permanent public image URLs
 
-* Complete **user data isolation**
-* Each user manages their own private gallery
+Example URL
 
-### ⚡ Advanced Gallery
+```
+https://res.cloudinary.com/<cloud-name>/image/upload/vxxxx/pixelvault/image.webp
+```
 
-* Infinite scrolling with **IntersectionObserver**
-* Image search by filename
-* Sorting by **date / size**
-* Responsive grid layout
+---
 
-### 🎨 Modern UI
+## 👤 Multi-User System
 
-* Glassmorphism UI design
-* Smooth skeleton loaders
-* Fully responsive layouts
-* Clean SaaS-style interface
+- Complete **user data isolation**
+- Each user has a **private gallery**
+- Images are stored per user
+
+---
+
+## ⚡ Advanced Gallery
+
+- Infinite scrolling with **IntersectionObserver**
+- Image search by filename
+- Sorting by **date / size**
+- Responsive grid layout
+
+---
+
+## 🎨 Modern UI
+
+- Glassmorphism UI design
+- Skeleton loaders
+- Responsive layouts
+- Clean SaaS interface
 
 ---
 
 # 🛠 Tech Stack
 
-### Frontend
+## Frontend
 
-* React (Vite)
-* React Router
-* Axios
-* React Dropzone
+- React (Vite)
+- React Router
+- Axios
+- React Dropzone
 
-### Backend
+---
 
-* Node.js
-* Express.js
-* MongoDB
-* Mongoose
-* JWT Authentication
-* Multer (file uploads)
-* Sharp (image processing)
-* Nodemailer (email service)
+## Backend
 
-### Styling
+- Node.js
+- Express.js
+- MongoDB
+- Mongoose
+- JWT Authentication
+- Multer (file upload middleware)
+- Sharp (image optimization)
+- Cloudinary (image storage + CDN)
+- Nodemailer (email service)
 
-* Pure CSS
-* Responsive Grid Layout
+---
+
+## Styling
+
+- Pure CSS
+- Responsive Grid Layout
+
+---
+
+# 🧠 System Architecture
+
+```
+React Client
+      │
+      │ REST API
+      ▼
+Node.js + Express Server
+      │
+      │
+MongoDB Atlas (Metadata)
+      │
+      │
+Cloudinary CDN (Image Storage)
+```
+
+---
+
+# ⚙️ Image Processing Pipeline
+
+```
+User Upload
+     │
+     ▼
+Multer Memory Storage
+     │
+     ▼
+Sharp Image Compression
+     │
+     ▼
+Cloudinary Upload
+     │
+     ▼
+MongoDB Metadata Save
+     │
+     ▼
+Frontend Gallery Display
+```
 
 ---
 
 # ⚙️ Installation & Setup
 
-### 1️⃣ Clone the repository
+## 1️⃣ Clone the Repository
 
 ```bash
 git clone https://github.com/rrrsahil/Pixel-Vault.git
@@ -96,7 +163,7 @@ cd Pixel-Vault
 
 ---
 
-### 2️⃣ Install dependencies
+## 2️⃣ Install Dependencies
 
 Backend
 
@@ -114,27 +181,32 @@ npm install
 
 ---
 
-### 3️⃣ Environment Variables
+## 3️⃣ Environment Variables
 
-Create a `.env` file inside the **server folder**
-
-Example configuration:
+Create `.env` inside **server folder**
 
 ```
 PORT=5000
-MONGODB_URI=your_database_connection
-JWT_SECRET=your_secret_key
+
+MONGODB_URI=your_mongodb_connection
+
+JWT_SECRET=your_secret
+
+CLOUDINARY_CLOUD_NAME=your_cloud_name
+CLOUDINARY_API_KEY=your_api_key
+CLOUDINARY_API_SECRET=your_api_secret
+
 MAIL_HOST=smtp_provider
 MAIL_PORT=587
 MAIL_USER=your_email
 MAIL_PASS=your_password
 ```
 
-⚠️ `.env` file **should never be committed to GitHub**.
+⚠️ `.env` should **never be committed to GitHub**
 
 ---
 
-### 4️⃣ Run Development Server
+## 4️⃣ Run Development Server
 
 Backend
 
@@ -152,7 +224,7 @@ npm run dev
 
 ---
 
-### 5️⃣ Open in Browser
+## 5️⃣ Open in Browser
 
 ```
 http://localhost:5173
@@ -168,107 +240,123 @@ pixel-vault
 ├── client
 │   ├── public
 │   ├── src
-│   ├── components
-│   ├── pages
-│   └── styles
+│   │   ├── components
+│   │   ├── pages
+│   │   ├── services
+│   │   └── styles
 │
 ├── server
 │   ├── config
+│   │   └── cloudinary.js
 │   ├── controllers
 │   ├── middleware
 │   ├── models
 │   ├── routes
-│   └── uploads
+│   └── server.js
 │
 └── README.md
 ```
 
 ---
 
+# 📘 API Overview
+
+| Method | Endpoint | Description |
+|------|------|------|
+| POST | /api/auth/register | Register user |
+| POST | /api/auth/login | Login user |
+| POST | /api/upload | Upload image |
+| GET | /api/images | Fetch images |
+| DELETE | /api/images/:id | Delete image |
+
+---
+
 # 🛡 Security
 
-* Passwords stored using **bcrypt hashing**
-* Protected API routes
-* Authenticated image access
-* File upload validation
-* Rate limiting to prevent abuse
+- Password hashing using **bcrypt**
+- JWT authentication
+- Protected API routes
+- File upload validation
+- Rate limiting
+- Private user galleries
+
+---
+
+# ⚡ Performance Optimizations
+
+- Image compression using **Sharp**
+- CDN delivery via **Cloudinary**
+- Lazy loading images
+- Infinite scrolling gallery
 
 ---
 
 # 🖼 Screenshots
 
-### Hero Banner
+## Home Page
 
-<img width="1000" height="600" alt="Screenshot 2026-03-07 170818" src="https://github.com/user-attachments/assets/474f41b4-24da-42f0-8389-3989cdb346d0" />
-
-
-```
-/screenshots/home.png
-```
-
-### Gallery
-
-<img width="1000" height="600" alt="Screenshot 2026-03-07 171023" src="https://github.com/user-attachments/assets/1aef68ba-92d0-4b9a-83ca-2f2153dada86" />
-
-```
-/screenshots/gallery.png
-```
-
-### Upload Page
-
-<img width="1000" height="600" alt="Screenshot 2026-03-07 170904" src="https://github.com/user-attachments/assets/cbb4140a-2095-4a0f-be5b-fb9e3fe7df88" />
-
-```
-/screenshots/upload.png
-```
+<img width="1000" src="https://github.com/rrrsahil/assets/Home.png">
 
 ---
 
-# 🧠 Architecture Diagram
+## Gallery Page
 
-```
-Client (React)
-      │
-      │ REST API
-      ▼
-Server (Node + Express)
-      │
-      │
-MongoDB Database
-```
+<img width="1000" src="https://github.com/user-attachments/assets/1aef68ba-92d0-4b9a-83ca-2f2153dada86">
 
 ---
 
-# 📘 API Overview
+## Upload Page
 
-Example Endpoints
-
-| Method | Endpoint           | Description       |
-| ------ | ------------------ | ----------------- |
-| POST   | /api/auth/register | Register new user |
-| POST   | /api/auth/login    | Login             |
-| POST   | /api/images/upload | Upload image      |
-| GET    | /api/images        | Fetch user images |
-| DELETE | /api/images/:id    | Delete image      |
+<img width="1000" src="https://github.com/user-attachments/assets/cbb4140a-2095-4a0f-be5b-fb9e3fe7df88">
 
 ---
 
 # 🚀 Deployment
 
-### Backend
+## Backend
 
 Recommended platforms
 
-* Render
-* Railway
-* DigitalOcean
+- Render
+- Railway
+- DigitalOcean
 
-### Frontend
+---
+
+## Frontend
 
 Recommended platforms
 
-* Vercel
-* Netlify
+- Vercel
+- Netlify
+
+---
+
+# 📈 Future Improvements
+
+- Image drag-and-drop bulk upload
+- Image analytics
+- Image download tracking
+- AI image tagging
+- Public galleries
+- API access tokens
+
+---
+
+# 🤝 Contributing
+
+Contributions are welcome.
+
+1. Fork the repository
+2. Create new branch
+3. Commit changes
+4. Open Pull Request
+
+---
+
+# 🐞 Issues
+
+If you encounter any issues please create a GitHub issue.
 
 ---
 
@@ -276,11 +364,11 @@ Recommended platforms
 
 Alok Pandit
 
-GitHub
+GitHub  
 https://github.com/rrrsahil
 
 ---
 
 # 📜 License
 
-This project is licensed under the MIT License.
+This project is licensed under the **MIT License**
