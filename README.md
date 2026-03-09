@@ -295,7 +295,7 @@ pixel-vault
 
 ## Home Page
 
-Screenshot/Home.png
+![Home Page](Screenshot/Home.png)
 
 ---
 
