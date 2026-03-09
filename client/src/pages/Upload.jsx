@@ -181,7 +181,7 @@ const Upload = () => {
                         className="btn btn-primary"
                         onClick={copyToClipboard}
                       >
-                        <i className="fa-regular fa-copy"></i> Copy
+                        <i className="fa-regular fa-copy"></i>
                       </button>
                     </div>
                     <button

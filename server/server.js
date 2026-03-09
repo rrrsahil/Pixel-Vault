@@ -21,8 +21,6 @@ app.use(cors({
 app.use(express.json());
 app.use(cookieParser());
 
-// Static File Serving for Images
-app.use('/images', express.static(path.join(__dirname, 'uploads')));
 
 // Routes
 app.use('/api', apiRoutes);
